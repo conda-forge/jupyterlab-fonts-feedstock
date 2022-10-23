@@ -19,8 +19,7 @@ source:
 build:
   number: 0
   noarch: python
-  script:
-    - {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 
 requirements:
@@ -42,7 +41,7 @@ test:
     - jupyter labextension list
     - jupyter labextension list 1>labextensions 2>&1
     {% for ext in extensions %}
-    - grep -iE "{{ ns }}/{{ ext }} v{{ version.replace('.', '\\.') }}.*OK.*\(conda, {{ name }}\)" labextensions
+    - grep -iE "{{ ns }}/{{ ext }} v{{ version.replace('.', '\\.') }}.*OK.*\(python, {{ name }}\)" labextensions
     {% endfor %}
 
 about:
