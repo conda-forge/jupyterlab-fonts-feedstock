@@ -1,4 +1,4 @@
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 {% set name = "jupyterlab-fonts" %}
 {% set ns = "@deathbeds" %}
 {% set extensions = [
@@ -9,22 +9,17 @@
 ] %}
 
 package:
-  name: {{ name }}
+  name: jupyterlab-fonts
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9c553ee9a1794859ba346e49473f1b260bbeba818e02f5651a9a91043ec0c912
+  url: https://pypi.io/packages/source/j/jupyterlab-fonts/jupyterlab-fonts-{{ version }}.tar.gz
+  sha256: 7706794eab8f8aff3b055d772d0049740a6d61b931896fbe872a014ede11d09c
 
 build:
   number: 0
   noarch: python
-  script:
-    - {{ PYTHON }} -m pip install . -vv
-    {% for ext in extensions %}
-    - cp {{ RECIPE_DIR }}/install.json {{ PREFIX }}/share/jupyter/labextensions/{{ ns }}/{{ ext }}/  # [unix]
-    - copy {{ RECIPE_DIR }}\install.json {{ PREFIX }}\share\jupyter\labextensions\{{ ns }}\{{ ext }}\  # [win]
-    {% endfor %}
+  script: {{ PYTHON }} -m pip install . -vv
 
 
 requirements:
@@ -38,6 +33,7 @@ requirements:
 test:
   requires:
     - pip
+    - m2-git  # [win]
   imports:
     - jupyterlab_fonts
   commands:
@@ -45,7 +41,7 @@ test:
     - jupyter labextension list
     - jupyter labextension list 1>labextensions 2>&1
     {% for ext in extensions %}
-    - cat labextensions | grep "{{ ns }}/{{ ext }} v{{ version.replace('.', '\\.') }}.*OK.*\(conda, {{ name }}\)"  # [unix]
+    - grep -iE "{{ ns }}/{{ ext }} v{{ version.replace('.', '\\.') }}.*OK.*\(python, {{ name }}\)" labextensions
     {% endfor %}
 
 about:
