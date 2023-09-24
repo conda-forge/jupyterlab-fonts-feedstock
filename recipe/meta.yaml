@@ -14,7 +14,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyterlab-fonts/jupyterlab-fonts-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/j/jupyterlab-fonts/jupyterlab_fonts-{{ version }}.tar.gz
   sha256: 2c9319f8735d79bb2d8950f9a3b98a0e7b1aa6b60f26f383e6753ffc74be97a6
 
 build:
