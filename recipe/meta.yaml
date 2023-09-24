@@ -22,7 +22,7 @@ build:
   noarch: python
   script:
     # TODO: remove after fixed upstream
-    - {{ PYTHON }} -c "[p.touch() for p in __import__('pathlib').Path(".").rglob('*')]"
+    - {{ PYTHON }} -c "[p.touch() for p in __import__('pathlib').Path.cwd().rglob('*')]"
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
