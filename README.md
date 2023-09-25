@@ -1,11 +1,11 @@
-About jupyterlab-fonts
-======================
+About jupyterlab-fonts-feedstock
+================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyterlab-fonts-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/deathbeds/jupyterlab-fonts
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyterlab-fonts-feedstock/blob/main/LICENSE.txt)
 
 Summary: Interactive Typography and Style for JupyterLab
 
