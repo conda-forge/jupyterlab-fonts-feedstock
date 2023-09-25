@@ -55,7 +55,7 @@ about:
   license_file:
     - LICENSE
     {% for ext in extensions %}
-    - src/jupyterlab_fonts/labextensions/{{ ns }}/{{ ext }}/static/third-party-licenses.json
+    - src/_d/share/jupyter/labextensions/{{ ns }}/{{ ext }}/static/third-party-licenses.json
     {% endfor %}
 
 extra:
