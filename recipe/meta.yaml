@@ -1,4 +1,4 @@
-{% set version = "3.0.0a1" %}
+{% set version = "3.0.0a2" %}
 {% set js_version = version.replace("a", "-alpha.").replace("b", "-beta.").replace("rc", "-rc.") %}
 {% set ns = "@deathbeds" %}
 {% set extensions = [
@@ -15,14 +15,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jupyterlab-fonts/jupyterlab_fonts-{{ version }}.tar.gz
-  sha256: 2c9319f8735d79bb2d8950f9a3b98a0e7b1aa6b60f26f383e6753ffc74be97a6
+  sha256: dbdd3025e14f56ea9c9a3cc08cca26cf0dfd6e9734876f3bd64e400dbde26947
 
 build:
   number: 0
   noarch: python
   script:
-    # TODO: remove after fixed upstream
-    - {{ PYTHON }} -c "[p.touch() for p in __import__('pathlib').Path.cwd().rglob('*')]"
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
