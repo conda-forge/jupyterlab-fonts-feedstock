@@ -1,4 +1,4 @@
-{% set version = "3.0.0a2" %}
+{% set version = "3.0.0a3" %}
 {% set js_version = version.replace("a", "-alpha.").replace("b", "-beta.").replace("rc", "-rc.") %}
 {% set ns = "@deathbeds" %}
 {% set extensions = [
@@ -15,7 +15,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jupyterlab-fonts/jupyterlab_fonts-{{ version }}.tar.gz
-  sha256: dbdd3025e14f56ea9c9a3cc08cca26cf0dfd6e9734876f3bd64e400dbde26947
+  sha256: 3e2bb4516cadbbd2af895f4c8c1990f77d4c99ef932fa94d5274b7a83dd24055
 
 build:
   number: 0
